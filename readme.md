@@ -8,11 +8,17 @@
 Скрипт будет формировать dataSeries в pandas с составом торта и выводить его на экран. 
 Кроме этого, на экран будет выводиться 3х-мерная единичная матрица, созданная с помощью numpy библиотеки.
 
+
 import numpy as np
+
 import pandas as pd
+
 -- создаем словарь с составом торта
+
 recipe_list = {'яйца': '2 штуки', 'сметана': '1 стакан', 'варенье': '1 стакан', 'сода': '0.5 чайной ложки'}
+
 -- формируем dataSeries на основе словаря 
+
 recipe = pd.Series(data = recipe_list, index=['яйца','сметана','варенье','сода'])
  
 -- выводим таблицу с рецептом на экран
@@ -22,9 +28,13 @@ print(np.eye(3))
 
 # Прописываем в Dockerfile
 FROM ubuntu:latest
+
 RUN apt-get update && apt-get upgrade -y
+
 RUN apt-get install python3 -y
+
 RUN apt-get install python3-pip -y
+
 RUN pip3 install numpy pandas
 
 # Команды для терминала
